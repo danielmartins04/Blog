@@ -8,7 +8,7 @@ namespace Blog.Controllers
     {
         [HttpGet("")]
         public IActionResult Get() {
-            return Ok( new { name = "Daniel" });
+            return Ok();
         }
     }
 }
