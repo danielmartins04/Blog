@@ -1,4 +1,5 @@
 using Blog.Data;
+using Blog.Extensions;
 using Blog.Models;
 using Blog.ViewModels;
 using Microsoft.AspNetCore.Mvc;
@@ -14,7 +15,7 @@ namespace Blog.Controllers
             [FromServices] BlogDataContext context
         ) {
             var categories = await context.Categories.ToListAsync();
-            return Ok(categories);
+            return Ok(new ResultViewModel<List<Category>>(categories));
         }
 
         [HttpGet("v1/categories/{id:int}")]
@@ -25,19 +26,23 @@ namespace Blog.Controllers
             try {
                 var category = await context.Categories.FirstOrDefaultAsync(x=>x.Id == id);
 
-                if (category == null) return NotFound();
+                if (category == null) 
+                    return NotFound(new ResultViewModel<Category>("Category not found."));
                     
-                return Ok(category);
-            } catch (Exception e) {
-                return StatusCode(500, "Falha interna no servidor.");
+                return Ok(new ResultViewModel<Category>(category));
+            } catch {
+                return StatusCode(500, new ResultViewModel<Category>("Internal Server Error"));
             }
         }
 
         [HttpPost("v1/categories")]
         public async Task<IActionResult> PostAsync(
-            [FromBody] CreateCategoryViewModel model,
+            [FromBody] EditorCategoryViewModel model,
             [FromServices] BlogDataContext context
         ) {
+            if (!ModelState.IsValid)
+                return BadRequest(new ResultViewModel<Category>(ModelState.GetErrors()));
+
             try {
                 var category = new Category 
                 {
@@ -49,22 +54,23 @@ namespace Blog.Controllers
                 await context.Categories.AddAsync(category);
                 await context.SaveChangesAsync();
 
-                return Created($"v1/categories/{category.Id}", category);
-            } catch(Exception e) {
-                return StatusCode(500, "Falha interna no servidor.");
+                return Created($"v1/categories/{category.Id}", new ResultViewModel<Category>(category));
+            } catch {
+                return StatusCode(500, new ResultViewModel<Category>("Internal Server Error"));
             }
         }
 
         [HttpPut("v1/categories/{id:int}")]
         public async Task<IActionResult> PutAsync(
             [FromRoute] int id,
-            [FromBody] Category model,
+            [FromBody] EditorCategoryViewModel model,
             [FromServices] BlogDataContext context
         ) {
             try {
                 var category = await context.Categories.FirstOrDefaultAsync(x=>x.Id == id);
 
-                if (category == null) return NotFound();
+                if (category == null) 
+                    return NotFound(new ResultViewModel<Category>("Category not found."));
 
                 category.Name = model.Name;
                 category.Slug = model.Slug;
@@ -72,9 +78,9 @@ namespace Blog.Controllers
                 context.Categories.Update(category);
                 await context.SaveChangesAsync();
 
-                return Ok(category);
+                return Ok(new ResultViewModel<Category>(category));
             } catch(Exception e) {
-                return StatusCode(500, "Falha interna no servidor.");
+                return StatusCode(500, new ResultViewModel<Category>("Internal Server Error."));
             }
         }
 
@@ -86,14 +92,15 @@ namespace Blog.Controllers
             try {
                 var category = await context.Categories.FirstOrDefaultAsync(x=>x.Id == id);
 
-                if (category == null) return NotFound();
+                if (category == null)
+                    return NotFound(new ResultViewModel<Category>("Category not found."));
 
                 context.Categories.Remove(category);
                 await context.SaveChangesAsync();
 
-                return Ok(category);
+                return Ok(new ResultViewModel<Category>(category));
             } catch(Exception e) {
-                return StatusCode(500, "Falha interna no servidor.");
+                return StatusCode(500, new ResultViewModel<Category>("Internal Server Error."));
             }
         }
     }
