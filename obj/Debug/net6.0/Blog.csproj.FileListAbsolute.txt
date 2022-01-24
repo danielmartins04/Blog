@@ -53,3 +53,4 @@ C:\Users\daniel martins\Desktop\Balta Premium\Blog\obj\Debug\net6.0\Blog.dll
 C:\Users\daniel martins\Desktop\Balta Premium\Blog\obj\Debug\net6.0\ref\Blog.dll
 C:\Users\daniel martins\Desktop\Balta Premium\Blog\obj\Debug\net6.0\Blog.pdb
 C:\Users\daniel martins\Desktop\Balta Premium\Blog\obj\Debug\net6.0\Blog.genruntimeconfig.cache
+C:\Users\daniel martins\Desktop\Balta Premium\Blog\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
