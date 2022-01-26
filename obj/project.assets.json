@@ -652,6 +652,15 @@
           }
         }
       },
+      "SecureIdentity/1.0.2": {
+        "type": "package",
+        "compile": {
+          "lib/net5.0/SecureIdentity.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/SecureIdentity.dll": {}
+        }
+      },
       "System.Buffers/4.5.0": {
         "type": "package",
         "compile": {
@@ -1897,6 +1906,18 @@
         "version.txt"
       ]
     },
+    "SecureIdentity/1.0.2": {
+      "sha512": "N1ewyG8lrgVmN5V9y6W6yGWBCPsNgW7WXxz564RbvTQ+igluN7Eu4dxYksxFTCjh1CcEf5wWJQxyDtbYyNTd5A==",
+      "type": "package",
+      "path": "secureidentity/1.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net5.0/SecureIdentity.dll",
+        "secureidentity.1.0.2.nupkg.sha512",
+        "secureidentity.nuspec"
+      ]
+    },
     "System.Buffers/4.5.0": {
       "sha512": "pL2ChpaRRWI/p4LXyy4RgeWlYF2sgfj/pnVMvBqwNFr5cXg7CXNnWZWxrOONLg8VGdFB8oB+EG2Qw4MLgTOe+A==",
       "type": "package",
@@ -2491,7 +2512,8 @@
       "Microsoft.AspNetCore.Authentication >= 2.2.0",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 6.0.1",
       "Microsoft.EntityFrameworkCore.Design >= 6.0.1",
-      "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.1"
+      "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.1",
+      "SecureIdentity >= 1.0.2"
     ]
   },
   "packageFolders": {
@@ -2550,6 +2572,10 @@
           "Microsoft.EntityFrameworkCore.SqlServer": {
             "target": "Package",
             "version": "[6.0.1, )"
+          },
+          "SecureIdentity": {
+            "target": "Package",
+            "version": "[1.0.2, )"
           }
         },
         "imports": [

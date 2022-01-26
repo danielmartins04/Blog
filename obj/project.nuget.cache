@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "W8mrQIb9C4+mXslP2FMwd4DGPBXACVp2Mo4WJc+a99n+rFUqO/q1upXMhHssGuttv1nTwndjgpv6ciZRaeq1Yw==",
+  "dgSpecHash": "rue8We9MIFdGEwY5IYUV7IFJfR1JJx9emMl6bY18XAmK7rAQLCnAfK0qzS3z+XkeMPqTSsn/4+oEcaAGjo9rqg==",
   "success": true,
   "projectFilePath": "C:\\Users\\daniel martins\\Desktop\\Balta Premium\\Blog\\Blog.csproj",
   "expectedPackageFiles": [
@@ -51,6 +51,7 @@
     "C:\\Users\\daniel martins\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\daniel martins\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\daniel martins\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
+    "C:\\Users\\daniel martins\\.nuget\\packages\\secureidentity\\1.0.2\\secureidentity.1.0.2.nupkg.sha512",
     "C:\\Users\\daniel martins\\.nuget\\packages\\system.buffers\\4.5.0\\system.buffers.4.5.0.nupkg.sha512",
     "C:\\Users\\daniel martins\\.nuget\\packages\\system.collections.immutable\\6.0.0\\system.collections.immutable.6.0.0.nupkg.sha512",
     "C:\\Users\\daniel martins\\.nuget\\packages\\system.configuration.configurationmanager\\4.7.0\\system.configuration.configurationmanager.4.7.0.nupkg.sha512",
