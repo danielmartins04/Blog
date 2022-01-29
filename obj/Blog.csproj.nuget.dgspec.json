@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\daniel martins\\Desktop\\Balta Premium\\Blog\\Blog.csproj": {}
+    "C:\\developer\\dotnet\\blog\\Blog.csproj": {}
   },
   "projects": {
-    "C:\\Users\\daniel martins\\Desktop\\Balta Premium\\Blog\\Blog.csproj": {
+    "C:\\developer\\dotnet\\blog\\Blog.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\daniel martins\\Desktop\\Balta Premium\\Blog\\Blog.csproj",
+        "projectUniqueName": "C:\\developer\\dotnet\\blog\\Blog.csproj",
         "projectName": "Blog",
-        "projectPath": "C:\\Users\\daniel martins\\Desktop\\Balta Premium\\Blog\\Blog.csproj",
-        "packagesPath": "C:\\Users\\daniel martins\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\daniel martins\\Desktop\\Balta Premium\\Blog\\obj\\",
+        "projectPath": "C:\\developer\\dotnet\\blog\\Blog.csproj",
+        "packagesPath": "C:\\Users\\freit\\.nuget\\packages\\",
+        "outputPath": "C:\\developer\\dotnet\\blog\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\daniel martins\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\freit\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
