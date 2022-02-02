@@ -112,3 +112,4 @@ C:\developer\dotnet\Blog\obj\Debug\net6.0\Blog.dll
 C:\developer\dotnet\Blog\obj\Debug\net6.0\ref\Blog.dll
 C:\developer\dotnet\Blog\obj\Debug\net6.0\Blog.pdb
 C:\developer\dotnet\Blog\obj\Debug\net6.0\Blog.genruntimeconfig.cache
+C:\developer\dotnet\Blog\bin\Debug\net6.0\Blog.staticwebassets.runtime.json

@@ -1,11 +1,19 @@
 {
   "Version": 1,
-  "Hash": "iHKkzylLStCdz/H62Ga7eUDHbY68jqQS/peP5vtmhCs=",
+  "Hash": "qBFcBoVVaXbC90t4uaes1mR2bzxaWWAit40EiCSFW7A=",
   "Source": "Blog",
   "BasePath": "_content/Blog",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "Blog\\wwwroot",
+      "Source": "Blog",
+      "ContentRoot": "C:\\developer\\dotnet\\Blog\\wwwroot\\",
+      "BasePath": "_content/Blog",
+      "Pattern": "**"
+    }
+  ],
   "Assets": []
 }
