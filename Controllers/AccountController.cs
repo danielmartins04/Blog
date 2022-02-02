@@ -3,6 +3,7 @@ using Blog.Extensions;
 using Blog.Models;
 using Blog.Services;
 using Blog.ViewModels;
+using Blog.ViewModels.Accounts;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SecureIdentity.Password;
@@ -13,6 +14,7 @@ namespace Blog.Controllers {
         [HttpPost("v1/accounts")]
         public async Task<IActionResult> Post(
             [FromBody]RegisterViewModel model,
+            [FromServices]EmailService emailService,
             [FromServices]BlogDataContext context
         ) {
             if (!ModelState.IsValid)
@@ -32,14 +34,21 @@ namespace Blog.Controllers {
                 await context.Users.AddAsync(user);
                 await context.SaveChangesAsync();
 
+                emailService.Send(
+                    user.Name,
+                    user.Email,
+                    subject: "Bem vindo ao blog",
+                    body: $"Sua senha é <strong>{password}</strong>");
+
                 return Ok(new ResultViewModel<dynamic>(new {
-                    user = user.Email, password
+                    user = user.Email,
+                    password
                 }));
             }
             catch (DbUpdateException) {
                 return StatusCode(400, new ResultViewModel<string>("Erro ao criar usuário."));
-            } catch {
-                return StatusCode(500, new ResultViewModel<string>("Falha interna no servidor"));
+            } catch (Exception ex) {
+                return StatusCode(500, new ResultViewModel<string>(ex.Message));
             }
         }
 

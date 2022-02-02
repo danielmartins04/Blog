@@ -11,7 +11,7 @@ namespace Blog.Data
         public DbSet<User> Users { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
-            => options.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=Blog;Trusted_Connection=True;MultipleActiveResultSets=true");
+            => options.UseSqlServer(@"Server=np:\\.\pipe\LOCALDB#4EC1E850\tsql\query;Database=Blog;Trusted_Connection=True;MultipleActiveResultSets=true");
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -1,5 +1,4 @@
 using System.Text;
-using blog.Services;
 using Blog;
 using Blog.Data;
 using Blog.Services;
@@ -16,9 +15,8 @@ LoadConfiguration(app);
 
 app.UseAuthentication();
 app.UseAuthorization();
-
+app.UseStaticFiles();
 app.MapControllers();
-
 app.Run();
 
 void LoadConfiguration(WebApplication app) {

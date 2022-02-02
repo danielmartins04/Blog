@@ -1,8 +1,7 @@
 using System.Net;
 using System.Net.Mail;
-using Blog;
 
-namespace blog.Services;
+namespace Blog.Services;
 
 public class EmailService {
     public bool Send(
