@@ -5,6 +5,7 @@ using Blog.ViewModels;
 using Blog.ViewModels.Categories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace Blog.Controllers
 {
@@ -13,10 +14,23 @@ namespace Blog.Controllers
     {
         [HttpGet("v1/categories")]
         public async Task<IActionResult> GetAsync(
+            [FromServices] IMemoryCache cache,
             [FromServices] BlogDataContext context
         ) {
-            var categories = await context.Categories.ToListAsync();
-            return Ok(new ResultViewModel<List<Category>>(categories));
+            try {
+                var categories = cache.GetOrCreate("CategoriasCache", entry => {
+                    entry.AbsoluteExpirationRelativeToNow = TimeSpan.FromHours(1);
+                    return GetCategories(context);
+                });
+
+                return Ok(new ResultViewModel<List<Category>>(categories));   
+            } catch {
+                return StatusCode(500, new ResultViewModel<List<Category>>("Falha interna."));
+            }
+        }
+
+        public List<Category> GetCategories(BlogDataContext context) {
+            return context.Categories.ToList();
         }
 
         [HttpGet("v1/categories/{id:int}")]
@@ -80,7 +94,7 @@ namespace Blog.Controllers
                 await context.SaveChangesAsync();
 
                 return Ok(new ResultViewModel<Category>(category));
-            } catch(Exception e) {
+            } catch {
                 return StatusCode(500, new ResultViewModel<Category>("Internal Server Error."));
             }
         }
@@ -100,7 +114,7 @@ namespace Blog.Controllers
                 await context.SaveChangesAsync();
 
                 return Ok(new ResultViewModel<Category>(category));
-            } catch(Exception e) {
+            } catch {
                 return StatusCode(500, new ResultViewModel<Category>("Internal Server Error."));
             }
         }

@@ -46,6 +46,7 @@ void ConfigureAuthentication(WebApplicationBuilder builder) {
 }
 
 void ConfigureMvc(WebApplicationBuilder builder) {
+    builder.Services.AddMemoryCache();
     builder
     .Services
     .AddControllers()
