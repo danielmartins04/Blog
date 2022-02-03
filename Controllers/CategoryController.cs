@@ -20,7 +20,7 @@ namespace Blog.Controllers
             try {
                 var categories = cache.GetOrCreate("CategoriasCache", entry => {
                     entry.AbsoluteExpirationRelativeToNow = TimeSpan.FromHours(1);
-                    return GetCategories(context);
+                    return context.Categories.ToList();
                 });
 
                 return Ok(new ResultViewModel<List<Category>>(categories));   
@@ -29,9 +29,9 @@ namespace Blog.Controllers
             }
         }
 
-        public List<Category> GetCategories(BlogDataContext context) {
-            return context.Categories.ToList();
-        }
+        // public List<Category> GetCategories(BlogDataContext context) {
+        //     return context.Categories.ToList();
+        // }
 
         [HttpGet("v1/categories/{id:int}")]
         public async Task<IActionResult> GetByIdAsync(
